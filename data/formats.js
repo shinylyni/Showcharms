@@ -6,25 +6,15 @@ exports.BattleFormats = {
 	// Rulesets
 	///////////////////////////////////////////////////////////////////
 
-	freedom: {
+	anythinggoes: {
 		effectType: 'Banlist',
-		ruleset: [], //minimize clause?
-		banlist: ['Illegal']
+		ruleset: [],
+		banlist: ['Illegal', 'Unreleased']
 	},
 	standard: {
 		effectType: 'Banlist',
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
-		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
-	},
-	standardnext: {
-		effectType: 'Banlist',
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'HP Percentage Mod'],
-		banlist: ['Illegal', 'Soul Dew', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
-	},
-	standardubers: {
-		effectType: 'Banlist',
-		ruleset: ['Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'OHKO Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
-		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
+		ruleset: ['Sleep Clause Mod', 'OHKO Clause', 'Evasion Moves Clause', 'Baton Pass Clause'],
+		banlist: ['Uber', 'Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
 	},
 	standardgbu: {
 		effectType: 'Banlist',
@@ -63,8 +53,8 @@ exports.BattleFormats = {
 	},
 	standarddoubles: {
 		effectType: 'Banlist',
-		ruleset: ['Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Abilities Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod'],
-		banlist: ['Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
+		ruleset: ['Item Clause'],
+		banlist: ['Uber', 'Dark Void', 'Unreleased', 'Illegal', 'Huntail + Shell Smash + Sucker Punch', 'Leavanny + Knock Off + Sticky Web', 'Sylveon + Hyper Voice + Heal Bell + Wish + Baton Pass']
 	},
 	pokemon: {
 		effectType: 'Banlist',
@@ -420,6 +410,14 @@ exports.BattleFormats = {
 		banlist: ['Minimize', 'Double Team'],
 		onStart: function () {
 			this.add('rule', 'Evasion Moves Clause: Evasion moves are banned');
+		}
+	},
+	doubleteamclause: {
+		effectType: 'Banlist',
+		name: 'Double Team Clause',
+		banlist: ['Double Team'],
+		onStart: function () {
+			this.add('rule', 'Double Team Clause: Double Team is banned');
 		}
 	},
 	endlessbattleclause: {

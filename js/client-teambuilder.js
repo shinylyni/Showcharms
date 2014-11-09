@@ -1248,11 +1248,14 @@
 			pokemon: function(pokemon) {
 				if (!pokemon) {
 					if (this.curTeam) {
-						if (this.curTeam.format === 'ubers') return ['TU', 'MU', 'Leg', 'SU', 'LC', 'Unreleased'];
-						if (this.curTeam.format === 'standard') return ['MU', 'Leg', 'SU', 'LC', 'Unreleased'];
-						if (this.curTeam.format === 'maison') return ['Leg', 'SU', 'LC', 'Unreleased'];
-						if (this.curTeam.format === 'no legendary') return ['SU', 'LC', 'Unreleased'];
-						if (this.curTeam.format === 'lc') return ['LC'];
+						if (this.curTeam.format === 'Anything Goes') return ['Uber', 'SU', 'LC'];
+						if (this.curTeam.format === 'Pokecharms Standard') return ['SU', 'LC'];
+						if (this.curTeam.format === 'Little Cup') return ['LC'];
+						if (this.curTeam.format === 'Pokecharms Doubles') return ['SU', 'LC'];
+						if (this.curTeam.format === 'VGC 2014') return ['SU', 'LC'];
+						if (this.curTeam.format === 'Pokecharms Triples') return ['SU', 'LC'];
+						if (this.curTeam.format === 'Pokecharms Triples - Pick 3') return ['SU', 'LC'];
+					
 					}
 					return ['TU', 'MU', 'Leg', 'SU', 'FM', 'LC', 'Unreleased'];
 				}
