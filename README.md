@@ -1,66 +1,23 @@
-Pokémon Showdown Client
+Showcharms Client
 ========================================================================
-
-Navigation: [Website][1] | [Server repository][2] | **Client repository**
-
-  [1]: http://pokemonshowdown.com/
-  [2]: https://github.com/Zarel/Pokemon-Showdown
   
-Introduction
+Running the client
 ------------------------------------------------------------------------
 
-This is a repository for most of the client code for Pokémon Showdown.
+In the root of the main folder there is a file called "Showcharms.html"
+Open this in your web browser and voila, you're playing through our client
 
-This is what runs `play.pokemonshowdown.com`.
 
-**WARNING: You probably want the [Pokémon Showdown server][3]**, if you're
-setting up a server.
 
-  [3]: https://github.com/Zarel/Pokemon-Showdown
 
-Testing
+Limitations
 ------------------------------------------------------------------------
 
-You can make and test client changes simply by opening `testclient.html`.
-This will allow you to test changes to the client without setting up your
-own login server.
+**Registering a new name is not possible from our client**
+**Changing names is not possible within our client**
 
-You can connect to an arbitrary server by navigating to
-`testclient.html?~~host:port`. For example, to connect to a server running
-locally on port 8000, you can navigate to `testclient.html?~~localhost:8000`.
+You have to already be logged in via cookies from play.pokemonshowdown.com, and you'll be prompted each time you log in via the rogue server to do a simple copy/paste from your screen. 
 
-The following things will fail in `testclient.html`:
+Alternatively you can just use an unregistered name every time.
 
-+ Registering
-+ Changing name to a registered name other than the one you are currently
-  logged in with (however, changing to an unregistered name will work, and
-  you can even change back to your original registered name afterward)
-
-Everything else can be tested, though.
-
-Warning
-------------------------------------------------------------------------
-
-This repository is not "batteries included". It does NOT include everything
-necessary to run a full Pokémon Showdown client.
-
-In particular, it doesn't include a login/authentication server, nor does it
-include the database abstraction library used by the ladder library (although
-it's similar enough to `mysqli` that you can use that with minimal changes).
-
-It also doesn't include several resource files (namely, the `/audio/` and
-`/sprites/` directories) for size reasons.
-
-In other words, this repository is incomplete and NOT intended for people
-who wish to serve their own Pokémon Showdown client (you can, but it'll
-require you to rewrite some things). Rather, it's intended for people who
-wish to contribute and submit pull requests to Pokémon Showdown's client.
-
-License
-------------------------------------------------------------------------
-
-Pokémon Showdown's client is distributed under the terms of the [AGPLv3][4].
-
-  [4]: http://www.gnu.org/licenses/agpl-3.0.html
-
-WARNING: This is NOT the same license as Pokémon Showdown's server.
+The only reason the html client works is by telling showdown 'HEY THIS IS YOUR TEST CLIENT' and there's a clunky method one has to go through for logging in. If we didn't set it to test client = true, showdown refuses the connection and you can't log in at all since the client has been modified.
