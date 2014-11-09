@@ -14,6 +14,7 @@ Limitations
 ------------------------------------------------------------------------
 
 **Registering a new name is not possible from our client**
+
 **Changing names is not possible within our client**
 
 You have to already be logged in via cookies from play.pokemonshowdown.com, and you'll be prompted each time you log in via the rogue server to do a simple copy/paste from your screen. 
