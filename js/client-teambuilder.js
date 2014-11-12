@@ -168,12 +168,31 @@
 					if (team.format) {
 						formatText = '['+team.format+'] ';
 					}
+					
+					var set = team[i];					
+					var pokemonicon = '<span class="pokemonicon pokemonicon-'+i+'" style="'+Tools.getIcon(set)+'"></span>';
+					
+					var teamicons = '';
+					if (team.format) {
+						teamicons = '<button name="selectPokemon" value="'+i+'" class="pokemon">'+pokemonicon+Tools.escapeHTML(set.name)+'</button> ';;
+					}
 
-					buf += '<li><button name="edit" value="'+i+'" style="width:400px;vertical-align:middle">'+formatText+'<strong>'+Tools.escapeHTML(team.name)+'</strong><br /><small>';
+					//this is where I want to edit
+					buf += '<li><button name="edit" value="'+i+'" style="width:400px;vertical-align:middle">'+teamicons+'<strong>'+Tools.escapeHTML(team.name)+'</strong><br /><small>';
+					for (var j=0; j<team.team.length; j++) {
+						if (j!=0) buf += ' ';
+						var pokemonicon = '<span class="pokemonicon" style="display:inline-block;vertical-align:middle;'+Tools.getIcon(team.team[j].species)+'"></span>';
+						buf += ''+pokemonicon;
+					}
+					
+					/*includes names; original stuff
+					buf += '<br />'
 					for (var j=0; j<team.team.length; j++) {
 						if (j!=0) buf += ' / ';
 						buf += ''+Tools.escapeHTML(team.team[j].name);
 					}
+					*/
+					
 					buf += '</small></button> <button name="edit" value="'+i+'"><i class="icon-pencil"></i>Edit</button> <button name="delete" value="'+i+'"><i class="icon-trash"></i>Delete</button></li>';
 				}
 			}
