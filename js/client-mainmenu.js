@@ -36,7 +36,8 @@
 			}
 
 			buf += '<div class="menugroup"><p><button class="button" name="joinRoom" value="teambuilder">Teambuilder</button></p>';
-			buf += '<p><button class="button" name="credits">Credits</button></p></div></div>';
+			buf += '<p><button class="button" name="credits">Credits</button></p>';
+			buf += '<p><button class="button" name="staff">Pokecharms Staff</button></p></div></div>';
 
 			if (!app.down) buf += '<div class="menugroup"><p><button class="button" name="roomlist">Watch a battle</button></p></div>';
 
@@ -681,6 +682,9 @@
 		credits: function() {
 			app.addPopup(CreditsPopup);
 		},
+		staff: function() {
+			app.addPopup(StaffPopup);
+		},
 		roomlist: function() {
 			app.addPopup(BattleListPopup);
 		}
@@ -912,6 +916,28 @@
 			app.send('/cmd roomlist');
 		}
 	});
+	
+	var StaffPopup = this.StaffPopup = Popup.extend({
+		type: 'semimodal',
+		initialize: function() {
+			var buf = '';
+			buf += '<p style="text-align:center"><img src="' + Tools.resourcePrefix + 'pokemonshowdownbeta.png" alt="Pok&eacute;mon Showdown (beta)" /></p>';
+			if (Config.version) buf += '<p style="text-align:center;color:#555555"><small>Version <strong>'+Config.version+'</strong></small></p>';
+			buf += '<h2>Pokecharms Staff</h2>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/doctor-oak.17476/" target="_blank" class="subtle"><strong>Doctor Oak</strong></a> <small>&ndash; Webmaster</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/linkachu.36/" target="_blank" class="subtle"><strong>Linkachu</strong></a> <small>&ndash; Administrator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/stellarwind-elsydeon.216/" target="_blank" class="subtle"><strong>StellarWind Elsydeon</strong></a> <small>&ndash; Administrator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/prof-cinders.86/" target="_blank" class="subtle"><strong>Prof. Cinders</strong></a> <small>&ndash; Administrator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/teapot.1/" target="_blank" class="subtle"><strong>Teapot</strong></a> <small>&ndash; Administrator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/kol.62/" target="_blank" class="subtle"><strong>KoL</strong></a> <small>&ndash; Moderator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/baratron.262/" target="_blank" class="subtle"><strong>baratron</strong></a> <small>&ndash; Moderator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/demelza.17294/" target="_blank" class="subtle"><strong>Demelza</strong></a> <small>&ndash; Moderator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/magpie.60/" target="_blank" class="subtle"><strong>Magpie</strong></a> <small>&ndash; Moderator</small></p></li></ul>';
+			buf += '<ul><li><p><a href="http://pokecharms.com/members/yoshimitsu.29/" target="_blank" class="subtle"><strong>Yoshimitsu</strong></a> <small>&ndash; Moderator</small></p></li></ul>';
+			buf += '<p class="buttonbar"><button name="close" class="autofocus"><strong>Don\'t mess with them</strong></button></p>';
+			this.$el.addClass('Staff').html(buf);
+		}
+	});
 
 	var CreditsPopup = this.CreditsPopup = Popup.extend({
 		type: 'semimodal',
@@ -919,6 +945,9 @@
 			var buf = '';
 			buf += '<p style="text-align:center"><img src="' + Tools.resourcePrefix + 'pokemonshowdownbeta.png" alt="Pok&eacute;mon Showdown (beta)" /></p>';
 			if (Config.version) buf += '<p style="text-align:center;color:#555555"><small>Version <strong>'+Config.version+'</strong></small></p>';
+			buf += '<h2>Showcharms Editors</h2>';
+			buf += '<ul><li><p><strong>Ruko</strong> <small>&ndash; Development</small></p></li>';
+			buf += '<li><p><strong>Lyni</strong> <small>&ndash; Development</small></p></li></ul>';
 			buf += '<h2>Owner</h2>';
 			buf += '<ul><li><p><a href="http://guangcongluo.com/" target="_blank" class="subtle"><strong>Guangcong Luo</strong> [Zarel]</a> <small>&ndash; Development, Design</small></p></li></ul>';
 			buf += '<h2>Staff</h2>';
