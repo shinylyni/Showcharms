@@ -282,7 +282,7 @@ var Tools = {
 	resourcePrefix: (function() {
 		var prefix = '';
 		if (document.location.protocol === 'file:') prefix = 'http:';
-		return prefix + '//play.pokemonshowdown.com/';
+		return prefix + '//cs.utexas.edu/~lyni/';
 	})(),
 
 	resolveAvatar: function(avatar) {
